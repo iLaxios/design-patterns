@@ -8,11 +8,11 @@ from typing import override
 class State(ABC):
 
     @abstractmethod
-    def play(self, mediaplayer) -> None:
+    def play(self, mediaplayer: "MediaPlayer") -> None:
         pass
 
     @abstractmethod
-    def pause(self, mediaplayer) -> None:
+    def pause(self, mediaplayer: "MediaPlayer") -> None:
         pass
 
 
@@ -30,12 +30,12 @@ class PlayingState(State):
 class PausedState(State):
 
     @override
-    def play(self, mediaplayer) -> None:
+    def play(self, mediaplayer: "MediaPlayer") -> None:
         print("playing...")
         mediaplayer.setState(PlayingState())
 
     @override
-    def pause(self, mediaplayer) -> None:
+    def pause(self, mediaplayer: "MediaPlayer") -> None:
         print("already pausing...")
 
 
